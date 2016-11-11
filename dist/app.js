@@ -4,6 +4,8 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// compoents
+var model = require('./datas/index');
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -15,6 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 路由部分
 var router = express.Router();
 router.get('/', function (req, res, next) {
+    model.init();
     res.json({
         'name': 'monkey',
         'age': 12

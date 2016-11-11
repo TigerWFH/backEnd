@@ -5,6 +5,9 @@ import * as logger from 'morgan'
 import * as cookieParser from 'cookie-parser'
 import * as bodyParser from 'body-parser'
 
+// compoents
+var model = require('./datas/index')
+
 var app = express()
 
 app.set('views', path.join(__dirname, 'views'))
@@ -20,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 var router = express.Router();
 
 router.get('/', (req: any, res: any, next: any) => {
+    model.init();
     res.json({
         'name': 'monkey',
         'age': 12
