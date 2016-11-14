@@ -6,8 +6,11 @@
         "outDir": "./dist",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "removeComments": false,
-        "noImplicitAny": false
+        "removeComments": true,
+        "noImplicitAny": false,
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true
     },
     "include": [
         "./src/**/*.ts"

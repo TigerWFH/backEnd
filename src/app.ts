@@ -20,7 +20,14 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 // 路由部分
-app.use('/', root)
+var router = express.Router();
+router.get('/', (req, res, next) => {
+    console.log('Err')
+    res.json({
+        'name': 'monkey'
+    })
+})
+// app.use('/', root)
 app.use(function (req: any, res: any, next: any) {
     var err: any = new Error('Not Found');
     err.status = 404;

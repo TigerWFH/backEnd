@@ -4,8 +4,6 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var root_1 = require('./routers/root');
-// compoents
 var model = require('./datas/index');
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -15,8 +13,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// 路由部分
-app.use('/', root_1.router);
+var router = express.Router();
+router.get('/', function (req, res, next) {
+    console.log('Err');
+    res.json({
+        'name': 'monkey'
+    });
+});
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
@@ -25,20 +28,10 @@ app.use(function (req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
-        // res.render('error', {
-        //     message: err.message,
-        //     error: err
-        // });
     });
 }
-// production error handler
-// no stacktraces leaked to user
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    // res.render('error', {
-    //   message: err.message,
-    //   error: {}
-    // });
 });
 module.exports = app;
 

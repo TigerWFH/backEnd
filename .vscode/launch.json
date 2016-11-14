@@ -7,9 +7,9 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "program": "${workspaceRoot}\\src\\app.ts",
+            "program": "${workspaceRoot}\\dist\\app.js",
             "cwd": "${workspaceRoot}",
-            "outFiles": [],
+            "outFiles": ["${workspaceRoot}\\dist\\app.js"],
             "sourceMaps": true
         },
         {
@@ -19,8 +19,7 @@
             "port": 5858,
             "address": "localhost",
             "restart": true,
-            "outDir": "${workspaceRoot}/dist",
-            "outFiles": [],
+            "outFiles": ["${workspaceRoot}/dist/**/*.js"],
             "sourceMaps": true,
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
