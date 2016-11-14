@@ -17,3 +17,5 @@ var data = {
     }
 };
 module.exports = data;
+
+//# sourceMappingURL=../maps/datas/index.js.map

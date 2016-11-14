@@ -4,7 +4,7 @@ import * as favicon from 'serve-favicon'
 import * as logger from 'morgan'
 import * as cookieParser from 'cookie-parser'
 import * as bodyParser from 'body-parser'
-
+import { router as root } from './routers/root'
 // compoents
 var model = require('./datas/index')
 
@@ -20,16 +20,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 // 路由部分
-var router = express.Router();
-
-router.get('/', (req: any, res: any, next: any) => {
-    model.init();
-    res.json({
-        'name': 'monkey',
-        'age': 12
-    })
-})
-app.use("/", router)
+app.use('/', root)
 app.use(function (req: any, res: any, next: any) {
     var err: any = new Error('Not Found');
     err.status = 404;

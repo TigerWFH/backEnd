@@ -4,6 +4,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var root_1 = require('./routers/root');
 // compoents
 var model = require('./datas/index');
 var app = express();
@@ -15,15 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // 路由部分
-var router = express.Router();
-router.get('/', function (req, res, next) {
-    model.init();
-    res.json({
-        'name': 'monkey',
-        'age': 12
-    });
-});
-app.use("/", router);
+app.use('/', root_1.router);
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
@@ -48,3 +41,5 @@ app.use(function (err, req, res, next) {
     // });
 });
 module.exports = app;
+
+//# sourceMappingURL=maps/app.js.map

@@ -3,8 +3,6 @@ var mongoClient = mongoDrive.MongoClient;
 
 var serverUrl = 'mongodb://127.0.0.1:27017/blog';
 
-
-
 var data = {
     init: () => {
         mongoClient.connect(serverUrl, function (err: any, db: any) {
