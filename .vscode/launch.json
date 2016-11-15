@@ -7,10 +7,12 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "program": "${workspaceRoot}\\dist\\app.js",
+            "program": "${workspaceRoot}/dist/app.js",
+            "stopOnEntry": false,
             "cwd": "${workspaceRoot}",
-            "outFiles": ["${workspaceRoot}\\dist\\app.js"],
+            "outFiles": ["${workspaceRoot}/dist/**/*"],
             "sourceMaps": true
+
         },
         {
             "type": "node",
@@ -19,10 +21,11 @@
             "port": 5858,
             "address": "localhost",
             "restart": true,
-            "outFiles": ["${workspaceRoot}/dist/**/*.js"],
             "sourceMaps": true,
+            "outFiles": ["${workspaceRoot}/dist/**/*"],
             "localRoot": "${workspaceRoot}",
-            "remoteRoot": null
+            "remoteRoot": null,
+            "timeout": 30000
         }
     ]
 }

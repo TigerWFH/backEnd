@@ -16,8 +16,8 @@ function compilerTs() {
     return compiler.src()
         .pipe(sourceMaps.init())
         .pipe(compiler())
-        .pipe(sourceMaps.write('./maps'))
-        .pipe(gulp.dest(DEVPATH))
+        .pipe(sourceMaps.write())
+        .pipe(gulp.dest('./dist'))
 }
 gulp.task('ts', () => {
     return compilerTs();

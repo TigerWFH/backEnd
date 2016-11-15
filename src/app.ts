@@ -6,7 +6,6 @@ import * as cookieParser from 'cookie-parser'
 import * as bodyParser from 'body-parser'
 import { router as root } from './routers/root'
 // compoents
-var model = require('./datas/index')
 
 var app = express()
 
@@ -21,21 +20,26 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // 路由部分
 var router = express.Router();
-router.get('/', (req, res, next) => {
-    console.log('Err')
+router.get('/', (req: express.Request, res: express.Response, next: any) => {
+    console.log(123)
     res.json({
         'name': 'monkey'
     })
 })
+app.use('/', router);
 // app.use('/', root)
-app.use(function (req: any, res: any, next: any) {
+app.use(function (req: express.Request, res: express.Response, next: any) {
     var err: any = new Error('Not Found');
     err.status = 404;
+    console.log(123)
+    res.json({
+        'err': 'err'
+    })
     next(err);
 })
 
 if (app.get('env') === 'development') {
-    app.use(function (err: any, req: any, res: any, next: any) {
+    app.use(function (err: any, req: express.Request, res: express.Response, next: any) {
         res.status(err.status || 500);
         // res.render('error', {
         //     message: err.message,
@@ -43,10 +47,9 @@ if (app.get('env') === 'development') {
         // });
     });
 }
-
 // production error handler
 // no stacktraces leaked to user
-app.use(function (err: any, req: any, res: any, next: any) {
+app.use(function (err: any, req: express.Request, res: express.Response, next: any) {
     res.status(err.status || 500);
     // res.render('error', {
     //   message: err.message,
