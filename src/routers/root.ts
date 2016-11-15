@@ -6,6 +6,8 @@ router.get('/', (req, res, next) => {
     // res.json({
     //     'name': 'monkey'
     // })
+    console.log(456);
+    console.log(123);
     let appData = new AppData()
     appData.client.connect(appData.serverUrl, (err: any, db: any) => {
         if (err) {
