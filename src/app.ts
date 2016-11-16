@@ -26,8 +26,8 @@ router.get('/', (req: express.Request, res: express.Response, next: any) => {
         'name': 'monkey'
     })
 })
-app.use('/', router);
-// app.use('/', root)
+// app.use('/', router);
+app.use('/', root);
 app.use(function (req: express.Request, res: express.Response, next: any) {
     var err: any = new Error('Not Found');
     err.status = 404;
@@ -59,4 +59,4 @@ app.use(function (err: any, req: express.Request, res: express.Response, next: a
 
 
 
-module.exports = app 
+module.exports = app

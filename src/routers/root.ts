@@ -3,9 +3,6 @@ import * as express from 'express'
 
 var router = express.Router()
 router.get('/', (req, res, next) => {
-    // res.json({
-    //     'name': 'monkey'
-    // })
     console.log(456);
     console.log(123);
     let appData = new AppData()
