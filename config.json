@@ -1,0 +1,4 @@
+{
+    "remoteServer": "mongodb://127.0.0.1:27017/blog",
+    "dataServer": "mongodb://104.194.91.80:27017/test"
+}

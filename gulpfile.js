@@ -35,6 +35,10 @@ gulp.task('clear', () => {
     return del([DEVPATH]);
 });
 
+// gulp.task('resources', () => {
+//     gulp.src(['./config.json'], {base: './src'}).pipe(gulp.dest('./dist/'))
+// })
+
 gulp.task('supervisor', () => {
     return supervisor('./bin/www', {
         watch: ['./dist'],
